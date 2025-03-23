@@ -4,6 +4,7 @@ import HeroSection from "@/components/About/HeroSection";
 import MissionStatement from "@/components/About/MissionStatement";
 import HelmetComponent from "@/components/common/HelmetComponent";
 import Loader from "@/components/common/Loader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import { useQuery } from "@tanstack/react-query";
 
 function AboutPage() {
@@ -41,6 +42,7 @@ function AboutPage() {
         <HeroSection data={aboutPageData?.our_mission_section} />
         <Commitment data={aboutPageData?.core_value_section} />
         <MissionStatement data={aboutPageData} rewardData={homePageData?.home_earn_rewards} />
+        <WhatsappButton />
       </div>
     );
 }

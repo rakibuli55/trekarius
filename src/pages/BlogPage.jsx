@@ -3,6 +3,7 @@ import BlogPost from "@/components/Blog/BlogPost";
 import HelmetComponent from "@/components/common/HelmetComponent";
 import Loader from "@/components/common/Loader";
 import PaginationCustom from "@/components/common/PaginationCustom";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import Container from "@/components/container/Container";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -60,6 +61,7 @@ function BlogPage() {
             </div>
           </div>
         </Container>
+        <WhatsappButton />
       </section>
     </>
   );

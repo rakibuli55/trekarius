@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import PaypalImg from "../assets/images/paypal-logo.png";
 import StripeImg from "../assets/images/stripe-logo.png";
+import WhatsappButton from "@/components/common/WhatsappButton";
 
 const CheckoutPage = () => {
   const { user, loading: userLoading } = useAuth();
@@ -328,6 +329,7 @@ const CheckoutPage = () => {
             </div>
           </form>
         </div>
+        <WhatsappButton />
       </section>
     </>
   );

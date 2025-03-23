@@ -8,6 +8,7 @@ import { useContext } from "react";
 import EmptyCart from "../assets/images/icons/empty-cart.png";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/api";
+import WhatsappButton from "@/components/common/WhatsappButton";
 
 function CartPage() {
   const { cartItems } = useContext(CartContext);
@@ -69,6 +70,7 @@ function CartPage() {
               </div>
             </div>
           </div>
+          <WhatsappButton />
         </Container>
       </section>
     </>

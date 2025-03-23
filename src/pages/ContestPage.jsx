@@ -1,6 +1,7 @@
 import { api } from "@/api";
 import HelmetComponent from "@/components/common/HelmetComponent";
 import Loader from "@/components/common/Loader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import FaqSection from "@/components/Contest/FaqSection";
 import GalleryInfoSection from "@/components/Contest/GalleryInfoSection";
 import HeroSection from "@/components/Contest/HeroSection";
@@ -42,6 +43,7 @@ function ContestPage() {
       <StepProcess />
       <GalleryInfoSection data={contestPageData} />
       <FaqSection data={faqData} />
+      <WhatsappButton />
     </div>
   );
 }

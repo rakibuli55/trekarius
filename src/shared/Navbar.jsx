@@ -17,6 +17,7 @@ const menuItems = [
   { name: "Shop", link: "/shop" },
   { name: "Blog", link: "/blogs" },
   { name: "Photo Gallery", link: "/photo-gallery" },
+  { name: "contact us", link: "/contact-us" },
 ];
 
 function Navbar() {
@@ -51,7 +52,7 @@ function Navbar() {
                   data-aos="fade-in"
                   data-aos-delay={index * 100}
                 >
-                  <NavLink to={item?.link} className="menu-item">
+                  <NavLink to={item?.link} className="menu-item capitalize">
                     {item.name}
                   </NavLink>
                 </li>

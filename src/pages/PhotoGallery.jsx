@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loader from "../components/common/Loader"
 import { api } from '@/api';
 import HelmetComponent from '@/components/common/HelmetComponent';
+import WhatsappButton from '@/components/common/WhatsappButton';
 
 const PhotoGallery = () => {
 
@@ -37,6 +38,7 @@ const PhotoGallery = () => {
 
         {/* gallery section */}
         <GalleryContainer galleryItems={photoGallleryData} />
+        <WhatsappButton />
       </Container>
     </div>
   );

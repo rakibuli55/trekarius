@@ -1,5 +1,6 @@
 import { api } from "@/api";
 import Loader from "@/components/common/Loader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import Container from "@/components/container/Container";
 import { useQuery } from "@tanstack/react-query";
 import DOMPurify from "dompurify";
@@ -22,7 +23,7 @@ function DynamicPage() {
     return <Loader />
   }
     return (
-      <section className="pt-[150px] pb-[120px]">
+      <section className="pt-[150px] pb-[120px] min-h-[80vh]">
         <Container>
           <div>
             <h1 className="text-center font-bold text-[40px] text-headingColor">
@@ -33,6 +34,7 @@ function DynamicPage() {
               dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
             ></div>
           </div>
+          <WhatsappButton />
         </Container>
       </section>
     );

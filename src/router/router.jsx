@@ -21,11 +21,11 @@ import Layout from "../layout/Layout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import UnderConstruction from "../pages/UnderConstruction"
 import ResetPassword from "@/pages/ResetPassword";
 import CheckoutPage from "@/pages/CheckoutPage";
 import SuccessPayment from "@/pages/SuccessPayment";
 import ErrorPayment from "@/pages/ErrorPayment";
+import ContactPage from "@/pages/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:slug",
         element:<BlogDetailsPage />
+      },
+      {
+        path: "/contact-us",
+        element:<ContactPage />
       },
       {
         path: "/contest/photo-contest",

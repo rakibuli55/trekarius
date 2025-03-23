@@ -7,6 +7,7 @@ import { useState } from "react";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import Loader from "@/components/common/Loader";
 import toast from "react-hot-toast";
+import WhatsappButton from "@/components/common/WhatsappButton";
 
 function UserAccountPage() {
   const {
@@ -127,6 +128,7 @@ function UserAccountPage() {
             </div>
           </form>
         </div>
+        <WhatsappButton />
       </Container>
     </section>
   );

@@ -1,6 +1,7 @@
 import { api } from "@/api";
 import HelmetComponent from "@/components/common/HelmetComponent";
 import Loader from "@/components/common/Loader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import Container from "@/components/container/Container";
 import Products from "@/components/shop/Products";
 import { useQuery } from "@tanstack/react-query";
@@ -55,6 +56,7 @@ function ShopPage() {
             </div>
           </div>
         </Container>
+        <WhatsappButton />
       </section>
     </>
   );

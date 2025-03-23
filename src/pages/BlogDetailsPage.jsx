@@ -3,6 +3,7 @@ import BlogInformation from "@/components/BlogDetails/BlogInformation";
 import RelatedBlogs from "@/components/BlogDetails/RelatedBlogs";
 import HelmetComponent from "@/components/common/HelmetComponent";
 import Loader from "@/components/common/Loader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import Container from "@/components/container/Container";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
@@ -17,7 +18,6 @@ function BlogDetailsPage() {
       return response.data;
     },
   });
-  console.log(blogPost?.data);
 
   if (isLoading) {
     return <Loader />;
@@ -56,6 +56,7 @@ function BlogDetailsPage() {
             </div>
           </div>
         </Container>
+        <WhatsappButton />
       </section>
     </>
   );

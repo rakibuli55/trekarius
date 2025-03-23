@@ -9,6 +9,8 @@ import { Element } from "react-scroll";
 import FeatheredBackpaks from "../components/HomePage/FeatheredBackpaks";
 import HeroSection from "../components/HomePage/HeroSection";
 import VideoSection from "../components/HomePage/VideoSection";
+import WhatsappButton from "@/components/common/WhatsappButton";
+import Testimonials from "@/components/HomePage/Testimonials";
 
 function HomePage() {
   const { data: homePageData, isLoading: homeLoading } = useQuery({
@@ -30,7 +32,6 @@ function HomePage() {
   if (homeLoading) {
     return <Loader />;
   }
-  console.log(homePageData);
 
   return (
     <>
@@ -40,12 +41,11 @@ function HomePage() {
       <Element name="featureBackpack">
         <FeatheredBackpaks />
       </Element>
+      <Testimonials />
       <VideoSection videoData={homePageData?.home_video_section} />
-      {/* <NewArrivals /> */}
-      {/* <PricingSection /> */}
       <LatestBlogs />
       <EarnRewards data={homePageData?.home_earn_rewards} />
-      {/* <CryptoSection /> */}
+      <WhatsappButton />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { api } from "@/api";
 import HelmetComponent from "@/components/common/HelmetComponent";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import Container from "@/components/container/Container";
 import Product from "@/components/productDetails/Product";
 import ProductPrice from "@/components/productDetails/ProductPrice";
@@ -30,6 +31,7 @@ function ProductDetailsPage() {
               <ProductPrice productData={productData} />
             </div>
           </div>
+          <WhatsappButton />
         </Container>
       </section>
     </>
