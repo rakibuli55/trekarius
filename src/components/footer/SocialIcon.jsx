@@ -1,7 +1,7 @@
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { FaSkype } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaPinterestP, FaTiktok } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa6";
 
 
 function SocialIcon({ socialIconsData, type='footer' }) {
@@ -18,12 +18,12 @@ function SocialIcon({ socialIconsData, type='footer' }) {
             <FaTiktok />
           ) : icon?.social_media === 'instagram' ? (
             <FaInstagram />
+          ) : icon?.social_media === 'youtube' ? (
+            <FaYoutube />
           ) : null}
           </Link>
         </li>
       ))}
-
-
     </ul>
   )
 }
