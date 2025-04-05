@@ -16,7 +16,8 @@ const menuItems = [
   { name: "Contest & Reward", link: "/contest" },
   { name: "Shop", link: "/shop" },
   { name: "Blog", link: "/blogs" },
-  { name: "Photo Gallery", link: "/photo-gallery" },
+  { name: "Affiliate", link: "/affiliate" },
+  { name: "Gallery", link: "/photo-gallery" },
   { name: "contact us", link: "/contact-us" },
 ];
 

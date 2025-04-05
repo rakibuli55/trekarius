@@ -1,5 +1,4 @@
 import Container from '../container/Container';
-import HeroBanner from '../../assets/images/hero-banner.png';
 import { Link } from 'react-router-dom';
 import { BannerLogoSvg } from '../SvgContainer/SvgContainer';
 

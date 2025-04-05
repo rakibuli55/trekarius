@@ -41,7 +41,7 @@ function Footer() {
           </div>
           {/* footer menu  */}
           <div>
-            <ul className="flex custom-sm:flex-wrap custom-sm:gap-5 custom-xs:justify-center custom-xs:flex-wrap custom-xs:gap-5 custom-sm:justify-center items-center gap-8">
+            <ul className="flex custom-sm:flex-wrap custom-sm:gap-5 custom-xs:justify-center custom-xs:flex-wrap custom-xs:gap-5 custom-sm:justify-center items-center gap-8 max-md:gap-4 custom-xl:gap-4 custom-lg:gap-2">
               {menuItems.map((item, index) => (
                 <li
                   key={item?.name}
@@ -79,7 +79,7 @@ function Footer() {
         </div>
       </Container>
       {/* copyright  */}
-      <div className="py-8 mt-[60px] border-t border-[rgba(255,255,255,0.2)] text-center text-white capitalize">
+      <div className="py-8 mt-[60px] border-t border-[rgba(255,255,255,0.2)] text-center text-white capitalize custom-xs:text-sm">
         {siteSettings?.copyright_text}
       </div>
     </footer>

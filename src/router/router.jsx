@@ -26,6 +26,7 @@ import CheckoutPage from "@/pages/CheckoutPage";
 import SuccessPayment from "@/pages/SuccessPayment";
 import ErrorPayment from "@/pages/ErrorPayment";
 import ContactPage from "@/pages/ContactPage";
+import AffiliatePage from "@/pages/AffiliatePage";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:slug",
         element:<BlogDetailsPage />
+      },
+      {
+        path: "/affiliate",
+        element:<AffiliatePage />
       },
       {
         path: "/contact-us",

@@ -209,32 +209,38 @@
     @apply list-disc list-inside;
   }
   .product-description-box h1,
-  .blog-description-box h1 {
+  .blog-description-box h1,
+  .common-html-box h1 {
     @apply text-[32px] font-bold;
   }
 
   .product-description-box h2,
-  .blog-description-box h2 {
+  .blog-description-box h2,
+  .common-html-box h2 {
     @apply text-[28px] font-bold;
   }
 
   .product-description-box h3,
-  .blog-description-box h3 {
+  .blog-description-box h3,
+  .common-html-box h3 {
     @apply text-[24px] font-bold;
   }
 
   .product-description-box h4,
-  .blog-description-box h4 {
+  .blog-description-box h4,
+  .common-html-box h4 {
     @apply text-[20px] font-bold;
   }
 
   .product-description-box h5,
-  .blog-description-box h5 {
+  .blog-description-box h5,
+  .common-html-box h5 {
     @apply text-[16px] font-bold;
   }
 
   .product-description-box h6,
-  .blog-description-box h6 {
+  .blog-description-box h6,
+  .common-html-box h6 {
     @apply text-[14px] font-bold;
   }
   .gallery-row{
@@ -288,6 +294,16 @@
   .earn-reward-section:after{
     content: '';
     @apply absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[-1]
+  }
+  .affliate-hero:before{
+    content: '';
+    @apply absolute top-0 left-0 h-full w-full bg-[rgba(0,0,0,0.3)] z-[-1];
+  }
+  .title-common{
+    @apply text-[40px] font-bold text-headingColor capitalize;
+  }
+  .indentity-image-wrap:hover img{
+    @apply scale-[1.1]
   }
 }
 

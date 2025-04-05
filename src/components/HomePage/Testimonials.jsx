@@ -22,10 +22,10 @@ function Testimonials() {
     setIsEnd(swiperInstance?.isEnd);
   };
 
-  const { data: latestBlogs, isLoading } = useQuery({
-    queryKey: ["latestBlogs"],
+  const { data: testimonials, isLoading } = useQuery({
+    queryKey: ["testimonials"],
     queryFn: async () => {
-      const response = await api.get("/blog/latest");
+      const response = await api.get("/testimonials");
       return response?.data?.data;
     },
   });
@@ -69,10 +69,10 @@ function Testimonials() {
               onSlideChange={handleSlideChange}
               onSwiper={handleSlideChange}
             >
-              {latestBlogs?.map((blog, index) => (
-                <SwiperSlide key={blog?.id} className="h-full">
+              {testimonials?.map((item, index) => (
+                <SwiperSlide key={item?.id} className="h-full">
                   <div data-aos="fade-up" data-aos-delay={index * 100} className="h-full">
-                    <TestimonialCard />
+                    <TestimonialCard testimonial={item}/>
                   </div>
                 </SwiperSlide>
               ))}
