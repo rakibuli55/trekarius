@@ -300,7 +300,7 @@
     @apply absolute top-0 left-0 h-full w-full bg-[rgba(0,0,0,0.3)] z-[-1];
   }
   .title-common{
-    @apply text-[40px] font-bold text-headingColor capitalize;
+    @apply text-[40px] max-md:text-[28px] custom-xs:!text-[24px] font-bold text-headingColor capitalize;
   }
   .indentity-image-wrap:hover img{
     @apply scale-[1.1]
