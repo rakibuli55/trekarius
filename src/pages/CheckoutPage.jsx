@@ -1,16 +1,18 @@
 import { api } from "@/api";
 import HelmetComponent from "@/components/common/HelmetComponent";
+import SpinnerLoader from "@/components/common/SpinnerLoader";
+import WhatsappButton from "@/components/common/WhatsappButton";
 import { CartContext } from "@/context";
+import useApplyCupon from "@/hooks/useApplyCupon";
 import useAuth from "@/hooks/useAuth";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import PaypalImg from "../assets/images/paypal-logo.png";
 import StripeImg from "../assets/images/stripe-logo.png";
-import WhatsappButton from "@/components/common/WhatsappButton";
 
 const CheckoutPage = () => {
   const { user, loading: userLoading } = useAuth();
@@ -34,8 +36,26 @@ const CheckoutPage = () => {
     0
   );
   const axiosSecure = useAxiosSecure();
-  const [shippingCost, setShippingCost] = useState(14.99);
-  const totalCost = subTotalValue + parseFloat(shippingCost);
+  const [shippingCost, setShippingCost] = useState(Number(14.99));
+  const cuponInputRef = useRef();
+  const { validCuponCodeData, validCuponCodeLoading, fetchValidCuponCode } =
+    useApplyCupon();
+
+  // finalDiscountPrice
+  const finalDiscountPrice = useMemo(() => {
+    const discountPercentage =
+      parseFloat(validCuponCodeData?.data?.discount) || 0;
+    const discountAmount = (discountPercentage / 100) * subTotalValue;
+    return (subTotalValue - discountAmount + parseFloat(shippingCost)).toFixed(
+      2
+    );
+  }, [validCuponCodeData, subTotalValue, shippingCost]);
+
+  const discountAmount = useMemo(() => {
+    const discountPercentage =
+      parseFloat(validCuponCodeData?.data?.discount) || 0;
+    return (discountPercentage / 100) * subTotalValue;
+  }, [validCuponCodeData, subTotalValue]);
 
   const { data: checkoutMetadata, isLoading: checkoutMetaLoading } = useQuery({
     queryKey: ["checkoutMetadata"],
@@ -68,6 +88,15 @@ const CheckoutPage = () => {
       toast.error(`${error?.response?.data?.message}`, { id: loadingToast });
     }
   };
+
+  const handleCuponCode = () => {
+    const inputValue = cuponInputRef.current.value.trim();
+
+    if (inputValue?.length > 0) {
+      fetchValidCuponCode(inputValue);
+    }
+  };
+
   // onsubmit
   const onSubmit = async (data) => {
     // paypal
@@ -99,6 +128,7 @@ const CheckoutPage = () => {
               country: data?.country,
               number: data?.phone,
             },
+            coupon_code: validCuponCodeData?.data?.code.toString(),
           }
         );
 
@@ -129,6 +159,7 @@ const CheckoutPage = () => {
           phone_number: data?.phone,
           address: data?.address,
           country: data?.country,
+          coupon_code: validCuponCodeData?.data?.code.toString(),
           products,
           success_redirect_url: "https://trekarius.com/payment-success",
           cancel_redirect_url: "https://trekarius.com/payment-error",
@@ -264,6 +295,7 @@ const CheckoutPage = () => {
                     Choose your payment option
                   </h4>
                   <div className="flex items-center gap-3">
+                    {/* payment  */}
                     <div className="payment--option mt-5">
                       <input
                         type="radio"
@@ -278,6 +310,7 @@ const CheckoutPage = () => {
                         <img src={StripeImg} alt="" />
                       </label>
                     </div>
+
                     <div className="payment--option mt-5">
                       <input
                         type="radio"
@@ -299,6 +332,26 @@ const CheckoutPage = () => {
                     </p>
                   )}
                 </div>
+                {/* apply cupon  */}
+                <div className="flex items-center gap-3">
+                  <input
+                    ref={cuponInputRef}
+                    type="text"
+                    placeholder="Apply cupon"
+                    className="!py-2"
+                  />
+                  <button
+                    type="button"
+                    className="py-[10px] mt-[10px] px-4 bg-primaryBlue text-sm text-white rounded-[6px]"
+                    onClick={handleCuponCode}
+                  >
+                    {validCuponCodeLoading ? (
+                      <SpinnerLoader className="w-3 h-3" />
+                    ) : (
+                      "Apply"
+                    )}
+                  </button>
+                </div>
                 {/* order summary  */}
                 <div className="checkout-order-summary">
                   <h4 className="text-[18px] font-semibold text-headingColor mt-7">
@@ -313,9 +366,18 @@ const CheckoutPage = () => {
                       <p>Shipping cost</p>
                       <p>£ {shippingCost || 0}</p>
                     </li>
+                    <li>
+                      <p>
+                        Discount
+                        <span className="text-sm">
+                          ({validCuponCodeData?.data?.discount || 0}%)
+                        </span>
+                      </p>
+                      <p>£ {discountAmount.toFixed(2)}</p>
+                    </li>
                     <li className="border-t mt-2 !pt-4">
                       <p className="font-semibold">Total</p>
-                      <p className="font-semibold">£ {totalCost}</p>
+                      <p className="font-semibold">£ {finalDiscountPrice}</p>
                     </li>
                   </ul>
                   <button

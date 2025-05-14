@@ -32,7 +32,7 @@ function BlogDetailsPage() {
             {/* banner img  */}
             <div data-aos="fade-in">
               <img
-                className="w-full h-[420px] custom-sm:h-[300px] custom-xs:h-[250px] object-cover rounded-[16px]"
+                className="w-full custom-sm:h-[300px] custom-xs:h-[250px] custom-md:h-[650px] object-cover rounded-[16px]"
                 src={`${import.meta.env.VITE_SERVER_URL}/${
                   blogPost?.data?.image
                 }`}

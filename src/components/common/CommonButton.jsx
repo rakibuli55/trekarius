@@ -2,7 +2,7 @@ function CommonButton({ text, type = "fill", bgColor }) {
   const hoverColor = bgColor === "#1687C7" ? "#FF7701" : "#1687C7";
   return (
     <button
-      className={`py-3 px-6 custom-xs:py-[10px] custom-xs:px-5 custom-xl:py-[10px] rounded-[12px] text-base custom-xs:text-sm font-semibold border duration-200 ease-in-out`}
+      className={`py-3 px-6 custom-xl:px-4 custom-xs:py-[10px] custom-xs:px-5 custom-xl:py-[10px] rounded-[12px] text-base custom-xs:text-sm font-semibold border duration-200 ease-in-out`}
       style={{
         backgroundColor: type === "fill" ? bgColor : "transparent",
         color: type === "fill" ? "white" : bgColor,

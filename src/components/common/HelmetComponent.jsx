@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 
 const HelmetComponent = ({ item }) => {
-  console.log(item);
   return (
     <Helmet>
       <title>{item?.meta_title}</title>
