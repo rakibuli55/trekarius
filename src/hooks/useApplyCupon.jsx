@@ -28,10 +28,15 @@ const useApplyCupon = () => {
     }
   };
 
+  const resetValidCuponCode = () => {
+    queryClient.setQueriesData(["validCuponCodeData"], null)
+  }
+
   return { 
     validCuponCodeData, 
     validCuponCodeLoading: isManualLoading,
-    fetchValidCuponCode 
+    fetchValidCuponCode,
+    resetValidCuponCode 
   };
 };
 

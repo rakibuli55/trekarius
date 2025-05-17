@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import PaypalImg from "../assets/images/paypal-logo.png";
 import StripeImg from "../assets/images/stripe-logo.png";
+import { IoCloseOutline } from "react-icons/io5";
 
 const CheckoutPage = () => {
   const { user, loading: userLoading } = useAuth();
@@ -38,7 +39,7 @@ const CheckoutPage = () => {
   const axiosSecure = useAxiosSecure();
   const [shippingCost, setShippingCost] = useState(Number(14.99));
   const cuponInputRef = useRef();
-  const { validCuponCodeData, validCuponCodeLoading, fetchValidCuponCode } =
+  const { validCuponCodeData, validCuponCodeLoading, fetchValidCuponCode, resetValidCuponCode } =
     useApplyCupon();
 
   // finalDiscountPrice
@@ -96,6 +97,12 @@ const CheckoutPage = () => {
       fetchValidCuponCode(inputValue);
     }
   };
+
+  const handleRemoveCupon = () => {
+    resetValidCuponCode();
+    cuponInputRef.current.value = "";
+  }
+
 
   // onsubmit
   const onSubmit = async (data) => {
@@ -188,14 +195,14 @@ const CheckoutPage = () => {
   return (
     <>
       <HelmetComponent item={checkoutMetadata} />
-      <section className="py-[120px] min-h-screen">
+      <section className="py-[120px] custom-xs:py-20 min-h-screen">
         <div className="container">
           <form
-            className="checkout-form flex items-start w-full gap-5"
+            className="checkout-form flex items-start w-full gap-5 max-md:block"
             onSubmit={handleSubmit(onSubmit)}
           >
             {/* details  */}
-            <div className="bg-white border rounded-[20px] p-10 w-[70%]">
+            <div className="bg-white border rounded-[20px] p-10 w-[70%] max-md:w-full custom-xs:p-5">
               <div>
                 <label htmlFor="name" className="!mt-0">
                   Name
@@ -287,7 +294,7 @@ const CheckoutPage = () => {
               </div>
             </div>
             {/* payment options  */}
-            <div className="bg-white border rounded-[20px] p-10 w-[30%]">
+            <div className="bg-white border rounded-[20px] p-10 w-[30%] max-md:w-full max-md:mt-5 custom-xs:p-5">
               {/* payment options  */}
               <div className="payments--order-summary">
                 <div>
@@ -352,6 +359,13 @@ const CheckoutPage = () => {
                     )}
                   </button>
                 </div>
+                {/* cupon card  */}
+                {
+                  validCuponCodeData?.data?.code && (<div className="py-2 px-4 bg-primaryBlue rounded-[6px] mt-5 relative" onClick={handleRemoveCupon}>
+                      <p className="text-white font-semibold text-[18px]">{validCuponCodeData?.data?.code} <span className="text-sm">applied</span></p> 
+                      <p className="absolute top-1/2 translate-y-[-50%] right-4 h-5 w-5 flex items-center justify-center bg-[rgba(255,255,255,0.5)] rounded-full cursor-pointer duration-200 ease-in-out hover:bg-white"><IoCloseOutline /></p>
+                  </div>)
+                }
                 {/* order summary  */}
                 <div className="checkout-order-summary">
                   <h4 className="text-[18px] font-semibold text-headingColor mt-7">
@@ -382,7 +396,7 @@ const CheckoutPage = () => {
                   </ul>
                   <button
                     type="submit"
-                    className="w-full bg-primaryOrange border-[2px] border-primaryOrange p-3 text-[18px] text-white font-semibold rounded-[10px] mt-7 duration-200 ease-in-out hover:bg-transparent hover:text-primaryOrange"
+                    className="w-full bg-primaryOrange border-[2px] border-primaryOrange p-3 custom-xs:py-2 custom-xs:text-sm text-[18px] text-white font-semibold rounded-[10px] mt-7 duration-200 ease-in-out hover:bg-transparent hover:text-primaryOrange"
                   >
                     Procced to pay
                   </button>

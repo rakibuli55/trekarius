@@ -265,7 +265,7 @@
   .checkout-form input,
   .checkout-form textarea,
   .checkout-form select {
-    @apply text-base w-full py-5 px-5 border rounded-[10px] mt-3 focus:outline-none;
+    @apply text-base w-full py-5 px-5 custom-xs:py-[10px] custom-xs:text-sm border rounded-[10px] mt-3 focus:outline-none;
   }
   .checkout-form label {
     @apply text-base font-semibold text-headingColor mt-5 inline-block;
