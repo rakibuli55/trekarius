@@ -204,9 +204,13 @@ function RegisterPage() {
                 data-aos-delay="500"
               >
                 By clicking submit, you agree to
-                <Link to={"/"} className="font-semibold">
-                  Terms of Use, Privacy Policy, E-sign & Communication
-                  Authorization.
+
+                <Link to={"/terms-conditions"} className="font-semibold underline">
+                  Terms of Use
+                </Link> {''}
+
+                <Link to={"/privacy-policy"} className="font-semibold underline">
+                  Privacy Policy
                 </Link>
               </div>
               {/* submity btn  */}

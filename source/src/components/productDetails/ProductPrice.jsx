@@ -5,8 +5,7 @@ import toast from "react-hot-toast";
 
 function ProductPrice({ productData }) {
   
-  const totalProductPrice =
-    parseFloat(productData?.price || 0) + parseFloat(productData?.tax || 0);
+  const totalProductPrice = parseFloat(productData?.price || 0) + parseFloat(productData?.tax || 0);
 
     const {addItem} = useContext(CartContext)
     const axiosSecure = useAxiosSecure();
@@ -23,19 +22,19 @@ function ProductPrice({ productData }) {
         formData.append("quantity", defaultQuantity);
 
         const response =  await axiosSecure.post('/pre-order/store', formData)
-        console.log(response);
         if(response?.status === 200){
           toast.success(`${response?.data?.message}`, { id: loadingToast });
         }
 
       }catch(error){
-        console.log(error);
         toast.error(`${error?.response?.data?.message}`, { id: loadingToast });
       }
 
     }
 
-    console.log(productData);
+    
+
+
 
   return (
     <div className="product-price-box p-8 custom-xs:p-4 rounded-[16px] border border-borderColor">

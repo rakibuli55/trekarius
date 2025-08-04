@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-montserrat text-paragraphColor bg-bodyColor overflow-x-hidden;
+  }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply text-base font-semibold text-headingColor duration-200 ease-in-out hover:text-primaryBlue custom-2xl:text-sm custom-xl:text-[15px];
+  }
+  .menu-item.active {
+    @apply text-primaryBlue;
+  }
+  .action-button {
+    @apply w-[48px] h-[48px] custom-xl:w-10 custom-xl:h-10 rounded-full border border-headingColor flex items-center justify-center text-headingColor text-[25px] duration-200 ease-in-out hover:bg-primaryOrange hover:border-primaryOrange hover:text-white;
+  }
+  .action-button.active {
+    @apply bg-primaryBlue border-primaryBlue text-white;
+  }
+  .menu-item-footer {
+    @apply text-footerMenuColor;
+  }
+  .social-icon {
+    @apply flex items-center justify-center h-10 w-10 border border-primaryBlue rounded-full text-white duration-200 ease-in-out hover:bg-primaryBlue hover:text-white text-[20px];
+  }
+  .auth--box {
+    @apply p-8 custom-xs:p-5 rounded-[16px] bg-authBoxbg;
+  }
+  .auth--box .title {
+    @apply text-[32px] font-semibold text-headingColor;
+  }
+  .auth--box .sub-title {
+    @apply text-base text-paragraphColor mt-4 mb-10;
+  }
+  .auth--box label {
+    @apply text-[18px] custom-md:text-base custom-xs:text-base font-medium text-paragraphColor block mb-4;
+  }
+  .auth--box input {
+    @apply w-full bg-white text-headingColor py-3 px-6 rounded-[30px] custom-xs:text-sm border border-authBoxbg focus:outline-none;
+  }
+  .text--sm {
+    @apply text-[24px] custom-xs:text-[20px] font-semibold;
+  }
+  .hero-form {
+    @apply rounded-[24px] border border-[rgba(255,255,255,0.24)] p-10 custom-xl:p-7 max-xl:p-5 custom-xs:!p-4 max-xl:rounded-[16px];
+    background: linear-gradient(
+      111deg,
+      rgba(255, 255, 255, 0.4) -4.87%,
+      rgba(255, 255, 255, 0) 103.95%
+    );
+    backdrop-filter: blur(8px);
+  }
+  .text--xl {
+    @apply text-[48px] custom-2xl:text-[38px] custom-xl:text-[38px] max-xl:text-[34px] custom-sm:!text-[30px] custom-xs:!text-[26px] font-bold text-headingColor;
+  }
+  .video-slide-btn {
+    @apply py-[9px] px-[22px] bg-white rounded-[40px] flex items-center justify-center gap-2 text-sm font-bold text-headingColor max-w-[110px];
+  }
+  [role="dialog"] button svg {
+    @apply hidden;
+  }
+  .pricing-feature li {
+    @apply flex items-center gap-[15px] text-[18px] max-md:text-base text-white mt-4;
+  }
+  .pricing-feature li.disabled {
+    @apply opacity-50;
+  }
+  .blogCard:hover img {
+    @apply scale-[1.1];
+  }
+  .swiper-navigation button {
+    @apply absolute top-1/2 translate-y-[-50%] !h-[60px] !w-[60px] custom-xs:!h-10 custom-xs:!w-10 !bg-white rounded-full z-20 flex items-center justify-center text-[28px];
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+  .swiper-navigation .prev-btn {
+    @apply left-[-30px] custom-xs:left-[-20px];
+  }
+  .swiper-navigation .next-btn {
+    @apply right-[-30px] custom-xs:right-[-20px];
+  }
+  .swiper-navigation button.disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+  .map-form label {
+    @apply text-sm text-headingColor block;
+  }
+  .map-form input {
+    @apply w-full py-3 text-headingColor focus:outline-none bg-transparent border-b border-headingColor font-semibold;
+  }
+  .map-form .date-feild {
+    @apply w-full border-b border-headingColor py-3;
+  }
+  .trip-card:hover img {
+    @apply scale-[1.1];
+  }
+  .stepProcessCard {
+    @apply px-3 w-[470px] custom-sm:w-full custom-xs:w-full;
+  }
+  .faq-area h3 button {
+    @apply py-8 custom-sm:py-6 custom-xs:py-4;
+  }
+  .faq-area h3 button:hover {
+    text-decoration: none;
+  }
+  .faq-area h3 button svg {
+    height: 30px;
+    width: 30px;
+  }
+  .blogPost:hover img {
+    @apply scale-[1.1];
+  }
+  .pagination-link {
+    @apply !h-[42px] !w-[42px] bg-white border border-[rgba(0,0,0,0.1)] !rounded-full flex items-center justify-center hover:!bg-primaryOrange !font-semibold;
+  }
+  .participant-info label {
+    @apply text-headingColor block mb-3 custom-xs:text-sm;
+  }
+  .participant-info input,
+  .participant-info textarea {
+    @apply w-full py-5 custom-md:py-3 custom-md:px-4 px-6 bg-rewardBg border border-[rgba(255,255,255,0.40)] text-headingColor rounded-[8px] focus:outline-none custom-xs:text-sm custom-xs:px-4 custom-xs:py-3;
+  }
+  .participant-info textarea {
+    @apply resize-none h-[240px];
+  }
+  .submit-btn[disabled] {
+    @apply opacity-40 pointer-events-none;
+  }
+  .filter-sidebar .title {
+    @apply text-[20px] font-medium text-headingColor mb-6;
+  }
+  .categories input {
+    @apply hidden;
+  }
+  .categories li {
+    @apply relative pl-9 flex items-center justify-between mt-4 first:mt-0 font-medium;
+  }
+  .categories label:before {
+    content: "";
+    @apply absolute top-1/2 translate-y-[-50%] left-0 h-6 w-6 rounded-full bg-[#fafafb] border border-rewardBg;
+  }
+  .categories input:checked + label:after {
+    content: "";
+    @apply absolute top-[2px] left-[9px] w-[6px] h-[14px] rotate-[45deg];
+    border: solid #222e48;
+    border-width: 0 2.2px 2.2px 0;
+  }
+  .popular-tags ul {
+    @apply flex items-start flex-wrap gap-4;
+  }
+  .popular-tags ul li {
+    @apply py-3 px-6 text-sm font-medium duration-200 ease-in-out rounded-[100px] border border-borderColor cursor-pointer;
+  }
+  .product-price-box ul li {
+    @apply flex items-center justify-between mt-4;
+  }
+  .total-cart ul li {
+    @apply flex items-center justify-between mt-3 first:mt-0;
+  }
+  .total-cart ul li p {
+    @apply text-[18px] custom-xs:text-base font-medium text-headingColor;
+  }
+  .cart-item:last-child {
+    border: none;
+  }
+  .product-details-slider .swiper-pagination-bullet {
+    @apply size-2 md:size-3 border border-primaryOrange bg-transparent opacity-80;
+  }
+  .product-details-slider .swiper-pagination-bullet-active {
+    @apply bg-primaryOrange;
+  }
+  .user-profile-dropdown li a,
+  .user-profile-dropdown li p {
+    @apply block text-base font-medium py-2 px-5 border-b duration-200 ease-in-out hover:bg-primaryBlue hover:text-white hover:rounded-[8px];
+  }
+  .user-profile-dropdown:hover li {
+    @apply border-transparent;
+  }
+  .user-basic-information input {
+    @apply py-3 px-5 border font-medium text-headingColor border-borderColor w-full mt-5 rounded-[10px] focus:outline-none;
+  }
+  .pagination-link.active {
+    @apply font-bold bg-primaryBlue text-white;
+  }
+
+  .pagination-item[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .auth-input {
+    @apply text-base w-full py-3 px-5 rounded-[6px] border border-borderColor focus:outline-none;
+  }
+  .auth-btn {
+    @apply w-full py-3 bg-primaryBlue text-[18px] font-semibold text-white rounded-[6px] mt-5;
+  }
+  .product-description-box ul li ul {
+    @apply pl-5;
+  }
+  .product-description-box ul li ul li {
+    @apply list-disc list-inside;
+  }
+  .product-description-box h1,
+  .blog-description-box h1,
+  .common-html-box h1 {
+    @apply text-[32px] font-bold;
+  }
+
+  .product-description-box h2,
+  .blog-description-box h2,
+  .common-html-box h2 {
+    @apply text-[28px] font-bold;
+  }
+
+  .product-description-box h3,
+  .blog-description-box h3,
+  .common-html-box h3 {
+    @apply text-[24px] font-bold;
+  }
+
+  .product-description-box h4,
+  .blog-description-box h4,
+  .common-html-box h4 {
+    @apply text-[20px] font-bold;
+  }
+
+  .product-description-box h5,
+  .blog-description-box h5,
+  .common-html-box h5 {
+    @apply text-[16px] font-bold;
+  }
+
+  .product-description-box h6,
+  .blog-description-box h6,
+  .common-html-box h6 {
+    @apply text-[14px] font-bold;
+  }
+  .gallery-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .gallery-column {
+    width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .core-video-box:after {
+    content: "";
+    @apply absolute top-5 left-5 custom-sm:top-2 custom-sm:left-2 custom-xs:top-2 custom-xs:left-2 h-full w-full bg-primaryBlue rounded-[20px] z-[-1];
+  }
+  .core-video-box video {
+    @apply rounded-[20px];
+  }
+  .add-to-cart.disabled {
+    @apply opacity-20 hover:bg-headingColor hover:text-white pointer-events-none;
+  }
+  .checkout-form input,
+  .checkout-form textarea,
+  .checkout-form select {
+    @apply text-base w-full py-5 px-5 custom-xs:py-[10px] custom-xs:text-sm border rounded-[10px] mt-3 focus:outline-none;
+  }
+  .checkout-form label {
+    @apply text-base font-semibold text-headingColor mt-5 inline-block;
+  }
+  .checkout-form textarea {
+    @apply h-[140px] resize-none;
+  }
+  .payments--order-summary .payment--option input {
+    @apply hidden;
+  }
+  .payments--order-summary .payment--option label {
+    @apply mt-0;
+  }
+  .payments--order-summary .payment--option label {
+    @apply h-[60px] w-[60px] rounded-[10px] overflow-hidden border duration-200 ease-in-out;
+  }
+  .payments--order-summary .payment--option label img {
+    @apply h-full w-full object-cover;
+  }
+  .payments--order-summary .payment--option input:checked + label {
+    @apply border-primaryBlue;
+  }
+  .checkout-order-summary li {
+    @apply flex items-center justify-between py-2;
+  }
+  .earn-reward-section:after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[-1];
+  }
+  .affliate-hero:before {
+    content: "";
+    @apply absolute top-0 left-0 h-full w-full bg-[rgba(0,0,0,0.3)] z-[-1];
+  }
+  .title-common {
+    @apply text-[40px] max-md:text-[28px] custom-xs:!text-[24px] font-bold text-headingColor capitalize;
+  }
+  .indentity-image-wrap:hover img {
+    @apply scale-[1.1];
+  }
+  .spinner-loader {
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #fff;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation-spinner 1s linear infinite;
+  }
+  @keyframes rotation-spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+    border-radius: 10px;
+  }
+}
+
+.react-calendar {
+  @apply !border-none;
+}
+.react-calendar__navigation__label__labelText {
+  @apply font-bold;
+}
